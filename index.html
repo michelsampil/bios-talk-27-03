@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Desarrollo Web Moderno: Evolución, Tecnologías y Arquitecturas
+    </title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .slide {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: white;
+        color: #333;
+        page-break-after: always;
+      }
+      .slide h1 {
+        color: #2c3e50;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+      .slide h2 {
+        color: #34495e;
+        font-size: 1.8em;
+      }
+      .slide ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .slide li {
+        margin: 10px 0;
+        font-size: 1.2em;
+        line-height: 1.5;
+      }
+      .two-column {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1000px;
+      }
+      .column {
+        width: 48%;
+      }
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .tech-card {
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Slide 1: Portada -->
+    <div class="slide">
+      <h1>Desarrollo Web</h1>
+    </div>
+
+    <!-- Slide 2: Línea de Tiempo Histórica -->
+    <div class="slide">
+      <h1>Línea de Tiempo del Desarrollo Web</h1>
+      <div class="two-column">
+        <div class="column">
+          <h2>Década de 1990</h2>
+          <ul>
+            <li>🌐 1989: Creación de la World Wide Web por Tim Berners-Lee</li>
+            <li>📄 1990: Primer sitio web</li>
+            <li>🌈 1993: Primeros navegadores gráficos</li>
+            <li>🖥️ 1995: JavaScript (Netscape)</li>
+            <li>🔍 1998: Google fundado</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h2>Década de 2000</h2>
+          <ul>
+            <li>💻 2004: Web 2.0 comienza</li>
+            <li>🌐 2005: YouTube lanzado</li>
+            <li>📱 2007: Primero iPhone</li>
+            <li>🚀 2009: Node.js creado</li>
+            <li>⚛️ 2013: React introducido</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h1>Arquitecturas de Desarrollo Web</h1>
+
+    <h2>1. Arquitectura Cliente-Servidor</h2>
+    <div class="diagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+        <!-- Cliente -->
+        <rect
+          x="50"
+          y="100"
+          width="150"
+          height="100"
+          fill="#E6F2FF"
+          stroke="#3498db"
+          stroke-width="2"
+        />
+        <text x="125" y="150" text-anchor="middle" font-size="16">
+          Cliente
+          <tspan x="125" dy="20" font-size="12">(Navegador Web)</tspan>
+        </text>
+
+        <!-- Servidor -->
+        <rect
+          x="400"
+          y="100"
+          width="150"
+          height="100"
+          fill="#E6F2FF"
+          stroke="#3498db"
+          stroke-width="2"
+        />
+        <text x="475" y="150" text-anchor="middle" font-size="16">
+          Servidor
+          <tspan x="475" dy="20" font-size="12">(Aplicación Web)</tspan>
+        </text>
+
+        <!-- Flecha de Solicitud -->
+        <path
+          d="M200,150 Q300,100 400,150"
+          fill="none"
+          stroke="#2ecc71"
+          stroke-width="3"
+        />
+        <text x="300" y="90" text-anchor="middle" fill="#2ecc71">
+          Solicitud HTTP
+        </text>
+
+        <!-- Flecha de Respuesta -->
+        <path
+          d="M400,170 Q300,220 200,170"
+          fill="none"
+          stroke="#e74c3c"
+          stroke-width="3"
+        />
+        <text x="300" y="240" text-anchor="middle" fill="#e74c3c">
+          Respuesta HTTP
+        </text>
+      </svg>
+    </div>
+
+    <div>
+      <h3>Explicación Detallada de la Arquitectura Cliente-Servidor</h3>
+      <p>La arquitectura cliente-servidor es un modelo computacional donde:</p>
+      <ul>
+        <li>
+          <strong>Cliente:</strong>
+          <ul>
+            <li>Dispositivo o aplicación que solicita servicios o recursos</li>
+            <li>Típicamente un navegador web en desarrollo web</li>
+            <li>Responsable de renderizar la interfaz de usuario</li>
+            <li>Envía solicitudes al servidor</li>
+            <li>Procesa y muestra la respuesta recibida</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Servidor:</strong>
+          <ul>
+            <li>Equipo o sistema que proporciona servicios o recursos</li>
+            <li>Procesa solicitudes del cliente</li>
+            <li>Maneja lógica de negocio</li>
+            <li>Gestiona acceso a bases de datos</li>
+            <li>Genera respuestas para el cliente</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2>2. Arquitectura de 3 Capas</h2>
+    <div class="diagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+        <!-- Capa de Presentación -->
+        <rect
+          x="50"
+          y="50"
+          width="500"
+          height="100"
+          fill="#E6F2FF"
+          stroke="#3498db"
+          stroke-width="2"
+        />
+        <text x="300" y="100" text-anchor="middle" font-size="16">
+          Capa de Presentación
+          <tspan x="300" dy="20" font-size="12">
+            (Frontend - Interfaz de Usuario)
+          </tspan>
+        </text>
+
+        <!-- Capa de Negocio -->
+        <rect
+          x="50"
+          y="170"
+          width="500"
+          height="100"
+          fill="#E6F3F0"
+          stroke="#2ecc71"
+          stroke-width="2"
+        />
+        <text x="300" y="220" text-anchor="middle" font-size="16">
+          Capa de Lógica de Negocio
+          <tspan x="300" dy="20" font-size="12">
+            (Backend - Procesamiento de Datos)
+          </tspan>
+        </text>
+
+        <!-- Capa de Datos -->
+        <rect
+          x="50"
+          y="290"
+          width="500"
+          height="100"
+          fill="#FFF2E6"
+          stroke="#e74c3c"
+          stroke-width="2"
+        />
+        <text x="300" y="340" text-anchor="middle" font-size="16">
+          Capa de Datos
+          <tspan x="300" dy="20" font-size="12">
+            (Bases de Datos - Almacenamiento)
+          </tspan>
+        </text>
+
+        <!-- Flechas de Comunicación -->
+        <path
+          d="M300,150 v20"
+          fill="none"
+          stroke="#000"
+          stroke-dasharray="5,5"
+        />
+        <path
+          d="M300,270 v20"
+          fill="none"
+          stroke="#000"
+          stroke-dasharray="5,5"
+        />
+      </svg>
+    </div>
+
+    <h3>Explicación Detallada de la Arquitectura de 3 Capas</h3>
+    <p>
+      La arquitectura de 3 capas divide la aplicación en componentes separados:
+    </p>
+
+    <ol>
+      <li>
+        <strong>Capa de Presentación (Frontend):</strong>
+        <ul>
+          <li>Interfaz de usuario visible para el usuario final</li>
+          <li>Tecnologías: HTML, CSS, JavaScript</li>
+          <li>Frameworks: React, Vue, Angular</li>
+          <li>Responsable de la experiencia de usuario</li>
+          <li>Envía solicitudes a la capa de negocio</li>
+          <li>Renderiza datos recibidos</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Capa de Lógica de Negocio (Backend):</strong>
+        <ul>
+          <li>Procesa la lógica de la aplicación</li>
+          <li>Valida datos de entrada</li>
+          <li>Implementa reglas de negocio</li>
+          <li>Lenguajes: Python, Java, Node.js, PHP</li>
+          <li>Frameworks: Express, Django, Spring Boot</li>
+          <li>Comunica la capa de presentación con la de datos</li>
+          <li>Gestiona autenticación y autorización</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Capa de Datos:</strong>
+        <ul>
+          <li>Almacena y gestiona información</li>
+          <li>Bases de datos relacionales: MySQL, PostgreSQL</li>
+          <li>Bases de datos no relacionales: MongoDB, Firebase</li>
+          <li>Gestiona consultas y transacciones</li>
+          <li>Asegura integridad de datos</li>
+          <li>Implementa mecanismos de seguridad</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Ventajas de la Arquitectura de 3 Capas</h3>
+    <ul>
+      <li>Mayor modularidad y separación de responsabilidades</li>
+      <li>Facilita el mantenimiento y escalabilidad</li>
+      <li>Permite desarrollo independiente de cada capa</li>
+      <li>Mejora la reutilización de código</li>
+      <li>Simplifica la actualización de componentes</li>
+    </ul>
+
+    <!-- Slide 3: Arquitecturas Web -->
+    <div class="slide">
+      <h1>Evolución de Arquitecturas Web</h1>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Arquitectura Monolítica</h3>
+          <p>Toda la aplicación en un solo bloque</p>
+        </div>
+        <div class="tech-card">
+          <h3>Arquitectura Cliente-Servidor</h3>
+          <p>Separación básica de cliente y servidor</p>
+        </div>
+        <div class="tech-card">
+          <h3>Arquitectura de 3 Capas</h3>
+          <p>Presentación, Lógica, Datos</p>
+        </div>
+        <div class="tech-card">
+          <h3>Microservicios</h3>
+          <p>Servicios independientes y desacoplados</p>
+        </div>
+        <div class="tech-card">
+          <h3>Serverless</h3>
+          <p>Ejecución bajo demanda en la nube</p>
+        </div>
+        <div class="tech-card">
+          <h3>JAMStack</h3>
+          <p>JavaScript, APIs, Markup</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Tecnologías Frontend -->
+    <div class="slide">
+      <h1>Frameworks Frontend Modernos</h1>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>React</h3>
+          <p>Librería de Facebook para UI</p>
+          <ul>
+            <li>🧩 Componentes reutilizables</li>
+            <li>🚀 Virtual DOM</li>
+            <li>📊 Ecosistema robusto</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <h3>Vue.js</h3>
+          <p>Framework progresivo</p>
+          <ul>
+            <li>🌈 Curva de aprendizaje suave</li>
+            <li>🧘 Flexible y ligero</li>
+            <li>📦 Componentes simples</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <h3>Angular</h3>
+          <p>Plataforma de Google</p>
+          <ul>
+            <li>🏢 Completo y robusto</li>
+            <li>🧰 TypeScript nativo</li>
+            <li>🔧 Herramientas integradas</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <h3>Svelte</h3>
+          <p>Compilador de UI</p>
+          <ul>
+            <li>⚡ Alto rendimiento</li>
+            <li>🔬 Código más ligero</li>
+            <li>📉 Menor overhead</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Backend Frameworks -->
+    <div class="slide">
+      <h1>Frameworks Backend Modernos</h1>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Node.js</h3>
+          <p>JavaScript en servidor</p>
+          <ul>
+            <li>🚀 No bloqueante</li>
+            <li>📦 npm (gestor paquetes)</li>
+            <li>🌐 Multiplataforma</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <h3>Express.js</h3>
+          <p>Minimalist web framework</p>
+          <ul>
+            <li>🧩 Routing simple</li>
+            <li>🔌 Middleware potente</li>
+            <li>📦 Altamente extensible</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <h3>Nest.js</h3>
+          <p>Framework Node.js escalable</p>
+          <ul>
+            <li>🏗️ Arquitectura modular</li>
+            <li>🔧 TypeScript nativo</li>
+            <li>🌈 Inspirado en Angular</li>
+          </ul>
+        </div>
+        <div class="tech-card">
+          <h3>Django (Python)</h3>
+          <p>Framework baterías incluidas</p>
+          <ul>
+            <li>🛡️ Seguridad integrada</li>
+            <li>📊 ORM potente</li>
+            <li>🚀 Desarrollo rápido</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Seguridad Web -->
+    <div class="slide">
+      <h1>Seguridad Web</h1>
+      <ul>
+        <li>🪪 <span class="highlight">Tokens</span> JWT</li>
+        <li>
+          🛡️ <span class="highlight">OWASP Top 10</span>: Principales
+          vulnerabilidades
+        </li>
+        <li>
+          🔐 <span class="highlight">Autenticación Sin Contraseña</span>:
+          WebAuthn
+        </li>
+        <li>
+          🚧 <span class="highlight">Headers de Seguridad</span>: CORS, CSP
+        </li>
+        <li>
+          🤖 <span class="highlight">Protección DDoS</span>: Mitigación de
+          ataques
+        </li>
+      </ul>
+    </div>
+
+    <!-- Slide 7: Herramientas y Automatización -->
+    <div class="slide">
+      <h1>Herramientas y Automatización</h1>
+      <ul>
+        <li>🔄 <span class="highlight">CI/CD</span>: Integración continua</li>
+        <li>
+          🧪 <span class="highlight">Testing Automatizado</span>: Jest, Cypress
+        </li>
+        <li>
+          📦 <span class="highlight">Containerización</span>: Docker, Kubernetes
+        </li>
+        <li>
+          🌐 <span class="highlight">Infraestructura como Código</span>:
+          Terraform
+        </li>
+      </ul>
+    </div>
+
+    <!-- Slide 8: Servicios en la Nube -->
+    <div class="slide">
+      <h1>Servicios Cloud Más Utilizados</h1>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>AWS EC2</h3>
+          <p>Máquinas virtuales escalables</p>
+        </div>
+        <div class="tech-card">
+          <h3>AWS Lambda</h3>
+          <p>Computación serverless</p>
+        </div>
+        <div class="tech-card">
+          <h3>AWS S3</h3>
+          <p>Almacenamiento de objetos</p>
+        </div>
+        <div class="tech-card">
+          <h3>AWS RDS</h3>
+          <p>Bases de datos relacionales</p>
+        </div>
+        <div class="tech-card">
+          <h3>AWS DynamoDB</h3>
+          <p>Base de datos NoSQL</p>
+        </div>
+        <div class="tech-card">
+          <h3>AWS API Gateway</h3>
+          <p>Gestión de APIs</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Herramientas de Desarrollo -->
+    <div class="slide">
+      <h1>Herramientas Esenciales de Desarrollo</h1>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h3>Git</h3>
+          <p>Control de versiones</p>
+        </div>
+        <div class="tech-card">
+          <h3>GitHub</h3>
+          <p>Repositorios y colaboración</p>
+        </div>
+        <div class="tech-card">
+          <h3>Docker</h3>
+          <p>Contenedores</p>
+        </div>
+        <div class="tech-card">
+          <h3>Kubernetes</h3>
+          <p>Orquestación de contenedores</p>
+        </div>
+        <div class="tech-card">
+          <h3>VS Code</h3>
+          <p>Editor de código</p>
+        </div>
+        <div class="tech-card">
+          <h3>Postman</h3>
+          <p>Prueba de APIs</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Metodologías Modernas -->
+    <div class="slide">
+      <h1>Metodologías de Desarrollo</h1>
+      <ul>
+        <li>🔄 Scrum</li>
+        <li>🚀 Desarrollo Ágil</li>
+        <li>📦 DevOps</li>
+        <li>🔍 Test-Driven Development (TDD)</li>
+        <li>🌐 Continuous Integration/Continuous Deployment (CI/CD)</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <header>
+        <h1>SSR y SCG con Next.js</h1>
+        <p>
+          Explorando cómo Next.js soluciona problemas de SEO y mejora el
+          rendimiento de las aplicaciones web.
+        </p>
+      </header>
+
+      <section>
+        <h2>¿Qué es SSR (Server-Side Rendering)?</h2>
+        <p>
+          SSR es un enfoque en el que la página web se genera en el servidor y
+          se envía al cliente como HTML ya renderizado. Esto permite que los
+          motores de búsqueda indexen el contenido de la página fácilmente,
+          mejorando así el SEO.
+        </p>
+        <p>
+          Con SSR en Next.js, las páginas se renderizan en el servidor antes de
+          ser enviadas al navegador, lo que mejora la velocidad de carga y
+          facilita el rastreo por parte de los motores de búsqueda.
+        </p>
+      </section>
+
+      <section>
+        <h2>¿Qué es SCG (Static Site Generation)?</h2>
+        <p>
+          SCG es un enfoque en el que las páginas se generan en el momento de la
+          compilación y se sirven como archivos estáticos. Esto también mejora
+          el SEO, ya que las páginas ya están listas para ser indexadas por los
+          motores de búsqueda.
+        </p>
+        <p>
+          En Next.js, SCG permite crear sitios web ultrarrápidos con contenido
+          estático, ideal para páginas que no necesitan actualización constante
+          de datos en tiempo real.
+        </p>
+      </section>
+
+      <section>
+        <h2>Cómo Next.js resuelve el problema de SEO</h2>
+        <ul>
+          <li>
+            <strong>Generación de contenido estático:</strong> Next.js permite
+            generar páginas estáticas, lo que facilita que los motores de
+            búsqueda indexen el contenido sin depender de JavaScript.
+          </li>
+          <li>
+            <strong>Pre-renderizado:</strong> Next.js ofrece tanto SSR como SCG,
+            lo que significa que las páginas pueden ser renderizadas antes de
+            ser enviadas al cliente, asegurando que el contenido esté disponible
+            para los motores de búsqueda.
+          </li>
+          <li>
+            <strong>Optimización automática:</strong> Next.js maneja
+            automáticamente la optimización de las imágenes, el código y la
+            carga de recursos, lo que mejora el rendimiento y la experiencia de
+            usuario, factores importantes para el SEO.
+          </li>
+          <li>
+            <strong>Mejor rendimiento:</strong> La carga rápida de páginas, que
+            es posible tanto con SSR como con SCG, es un factor clave para una
+            buena puntuación de SEO, ya que Google prioriza las páginas rápidas.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ventajas de SSR y SCG en Next.js</h2>
+        <ul>
+          <li>
+            <strong>Mejora del SEO:</strong> Al renderizar las páginas del lado
+            del servidor o generar contenido estático, Next.js asegura que los
+            motores de búsqueda puedan rastrear y entender el contenido de las
+            páginas fácilmente.
+          </li>
+          <li>
+            <strong>Mejora en el tiempo de carga:</strong> Tanto SSR como SCG
+            permiten tiempos de carga rápidos, lo cual es crucial para la
+            experiencia del usuario y el SEO.
+          </li>
+          <li>
+            <strong>Flexibilidad:</strong> Next.js permite elegir entre SSR y
+            SCG según las necesidades del proyecto, ofreciendo flexibilidad para
+            distintas situaciones.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Slide 12: Conclusión -->
+    <div class="slide">
+      <h1>El Futuro del Desarrollo Web</h1>
+      <h2>Aprendizaje Continuo es la Clave 🚀</h2>
+      <p>
+        La tecnología evoluciona constantemente. Mantente actualizado, sé
+        curioso y nunca dejes de aprender.
+      </p>
+    </div>
+  </body>
+</html>
